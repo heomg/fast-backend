@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('pcontent', {
+   var pcontent = sequelize.define('pcontent', {
     pcid: {
       type: DataTypes.INTEGER(5),
       allowNull: false,
@@ -61,4 +61,12 @@ module.exports = function(sequelize, DataTypes) {
     sequelize,
     tableName: 'pcontent'
   });
+
+  pcontent.associate = function(models) {
+    pcontent.belongsTo(models.content, {
+      foreignKey: "ctid"
+    })
+  };
+
+  return pcontent;
 };

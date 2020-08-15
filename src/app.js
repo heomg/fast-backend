@@ -3,6 +3,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const db = require('../models');
 const patients = require('./api/patients');
+const pcontents = require('./api/pcontents');
 
 class App {
 
@@ -44,6 +45,7 @@ class App {
 
     getRouting (){
         this.app.use('/patients', patients);
+        this.app.use('/pcontents', pcontents);
     }
 
 }
