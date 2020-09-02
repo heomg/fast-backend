@@ -6,6 +6,7 @@ const models = require('../../models');
 const router = Router();
 
 router.get('/:ptid', async (req, res) => {
+    res.set({ 'access-control-allow-origin': '*' });
     try {
         const doc = await models.pcontent.findAll({
             include: [
@@ -19,7 +20,6 @@ router.get('/:ptid', async (req, res) => {
             }
         });
         
-        res.set({ 'access-control-allow-origin': '*' });
         console.log(doc, typeof doc);
 
         res.status(200).json({
@@ -27,7 +27,6 @@ router.get('/:ptid', async (req, res) => {
         });
     } catch(error) {
         console.log(error);
-        res.set({ 'access-control-allow-origin': '*' });
         res.status(400).json({ message: 'sth wrong', error });
     }
 })

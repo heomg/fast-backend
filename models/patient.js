@@ -13,6 +13,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       comment: '환자 성명'
     },
+    ptage: {
+      type: DataTypes.INTEGER(3),
+      allowNull: true,
+      comment: '환자 나이'
+    },
     ptphone: {
       type: DataTypes.STRING(20),
       allowNull: true,
