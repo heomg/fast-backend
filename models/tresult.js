@@ -8,11 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       comment: '테스크 수행 결과 코드 ex) 1000002-1004-10021-412-1000 ex)ptid-ctid-pcid-tkid-seqno'
     },
-    pcid: {
-      type: DataTypes.INTEGER(5),
-      allowNull: false,
-      comment: '환자 콘텐츠 플레이 ID'
-    },
     ptid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -23,6 +18,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       comment: '콘텐츠 ID'
     },
+    pcid: {
+      type: DataTypes.INTEGER(5),
+      allowNull: false,
+      comment: '환자 콘텐츠 플레이 ID'
+    },
     tkid: {
       type: DataTypes.INTEGER(5),
       allowNull: false,
@@ -32,6 +32,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(5),
       allowNull: false,
       comment: '태스크 수행 순번'
+    },
+    etime: {
+      type: DataTypes.INTEGER(5),
+      allowNull: true,
+      comment: '측정결과값: 태스크 수행 시간'
+    },
+    rtime: {
+      type: DataTypes.INTEGER(5),
+      allowNull: true,
+      comment: '측정결과값: 태스크 반응 시간'
     },
     epoint: {
       type: DataTypes.FLOAT,
