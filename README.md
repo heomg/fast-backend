@@ -10,7 +10,9 @@ REST API served by the server.
 | GET | /patients | Selects information of all patients registred  |
 | GET | /patients/{ptname} | Selects information of patients who has a certain name |
 | GET | /pcontents/{ptid} | Selects all rehabilitation records played by the patient |
-
+| GET | /pcontents/{ptid} | Selects all rehabilitation records played by the patient |
+| POST | /tresults/ | Selects measured data of the clikced rehabilitation record by the patient |
+| POST | /tresults/tkid | Selects measured data of certain task for history graph |
 
 ### Tech
    
