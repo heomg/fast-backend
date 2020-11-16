@@ -5,7 +5,7 @@ const db = require('../models');
 const patients = require('./api/patients');
 const pcontents = require('./api/pcontents');
 const tresults = require('./api/tresults');
-// const scene = require('./api/scene');
+const scene = require('./api/scene');
 const hands = require('./api/hands');
 const cors = require('cors');
 
@@ -53,7 +53,7 @@ class App {
         this.app.use('/patients', patients);
         this.app.use('/pcontents', pcontents);
         this.app.use('/tresults', tresults);
-        // this.app.use('/scene', scene);
+        this.app.use('/scene', scene);
         this.app.use('/hands', hands);
     }
 
