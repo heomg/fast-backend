@@ -9,7 +9,6 @@ router.get('/', async(req, res) => {
         root: path.join(__dirname, '..', 'scene'),
         headers: {
             'content-type': 'application/babylon',
-            'Access-Control-Allow-Origin': req.header('origin'),
         }
     }
 
@@ -29,7 +28,6 @@ router.get('/:name', async(req, res) => {
         root: path.join(__dirname, '..', 'scene'),
         headers: {
             'content-type': 'application/babylon',
-            'Access-Control-Allow-Origin': req.header('origin'),
         }
     }   
 

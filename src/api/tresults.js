@@ -41,14 +41,12 @@ router.post('/tkid', async (req, res) => {
                         WHERE ptid = ${ptid} AND ctid = ${ctid} AND tkid = ${tkidCdateArr[i].tkid} AND cdatetime <= ${tkidCdateArr[i].cdatetime}
                         ORDER BY cdatetime DESC LIMIT 30)`
         }
-
         const doc = await sequelize.query(
                 query,
             {
                 type: Sequelize.QueryTypes.SELECT,
             }
         );
-        console.log('doc', doc);
         res.status(200).json({
             taskTimes: doc,
         });
