@@ -5,12 +5,15 @@ const models = require('../../models');
 // router init
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const docs = await models.patient.findAll();
-    console.log(docs);
+    console.log('req.body', req.body);
+    const docs = await models.patient.findAll({
+      where: {
+        dtid: req.body.dtid,
+      }
+    });
 
-    res.set({ 'access-control-allow-origin': '*' });
     res.status(200).json({
       patientsInfo : docs,
     });
