@@ -52,6 +52,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(6),
       allowNull: true,
       comment: '생성시간'
+    },
+    dtid: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      comment: '의사id'
     }
   }, {
     sequelize,
