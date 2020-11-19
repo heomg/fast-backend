@@ -7,7 +7,9 @@ const pcontents = require('./api/pcontents');
 const tresults = require('./api/tresults');
 const scene = require('./api/scene');
 const hands = require('./api/hands');
-const cors = require('cors');
+const cors = require('cors')
+const auth = require('./api/auth.js');
+const authenticateUser = require('./utils/auth.js');
 
 class App {
 
@@ -46,17 +48,17 @@ class App {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(cors());
-
     }
 
     getRouting (){
+        this.app.use('/', auth);
+        // this.app.use('/patients', authenticateUser, patients);
         this.app.use('/patients', patients);
         this.app.use('/pcontents', pcontents);
         this.app.use('/tresults', tresults);
         this.app.use('/scene', scene);
         this.app.use('/hands', hands);
     }
-
 }
 
 module.exports = new App().app;
