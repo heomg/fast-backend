@@ -9,7 +9,7 @@ const scene = require('./api/scene');
 const hands = require('./api/hands');
 const cors = require('cors')
 const auth = require('./api/auth.js');
-const authenticateUser = require('./utils/auth.js');
+const util = require('./utils/auth.js');
 
 class App {
 
@@ -52,8 +52,8 @@ class App {
 
     getRouting (){
         this.app.use('/', auth);
-        // this.app.use('/patients', authenticateUser, patients);
-        this.app.use('/patients', patients);
+        this.app.use('/patients', util.authenticateUser, patients);
+        // this.app.use('/patients', patients);
         this.app.use('/pcontents', pcontents);
         this.app.use('/tresults', tresults);
         this.app.use('/scene', scene);

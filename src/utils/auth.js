@@ -11,7 +11,7 @@ const newToken = user => {
   });
 };
 
-exports.newToken = newToken;
+// exports.newToken = newToken;
 
 const verifyToken = token =>
   new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ const verifyToken = token =>
     });
   });
 
-exports.verifyToken = verifyToken;
+// exports.verifyToken = verifyToken;
 
 // middleware
 const authenticateUser = async (req, res, next) => {
@@ -49,4 +49,10 @@ const authenticateUser = async (req, res, next) => {
   next();
 };
 
-exports.authenticateUser = authenticateUser;
+// exports.authenticateUser = authenticateUser;
+
+module.exports = {
+  newToken,
+  verifyToken,
+  authenticateUser,
+}
