@@ -45,8 +45,10 @@ class App {
         
         // 미들웨어 셋팅
         this.app.use(logger('dev'));
-        this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(bodyParser.json({
+            limit : "50mb"
+        }));
+        this.app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
         this.app.use(cors());
     }
 
